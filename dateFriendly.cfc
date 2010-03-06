@@ -27,8 +27,8 @@
 	<cffunction name="addJS" returntype="Any" access="public" output="false" hint="" mixin="controller">
 		<!--- TODO: css and js files in a better location locally --->
 		<cfsavecontent variable="headJS">
-			<script type="text/javascript" src="/plugins/dateFriendly/jquery-1.4.2.min.js"></script> 
-			<script type="text/javascript" src="/plugins/dateFriendly/jquery-ui-1.8rc3.custom.min.js"></script> 
+			<script type="text/javascript" src="/plugins/dateFriendly/js/jquery-1.4.2.min.js"></script> 
+			<script type="text/javascript" src="/plugins/dateFriendly/js/jquery-ui-1.8rc3.custom.min.js"></script> 
 			<!--- TODO: extract only the specific css needed --->
 			<link type="text/css" href="http://jqueryui.com/themes/base/jquery.ui.all.css" rel="stylesheet" />
 			<link type="text/css" href="http://jqueryui.com/demos/demos.css" rel="stylesheet" />
