@@ -11,6 +11,7 @@
 		<cfargument name="$functionName" type="string" required="true">
 		<cfscript>
 			var loc = {};
+			arguments.label="Date Friendly";
 			loc.name = $tagName(arguments.objectName, arguments.property);
 			// entry[dateCreated]
 			arguments.$id = $tagId(arguments.objectName, arguments.property);
@@ -19,10 +20,7 @@
 			loc.value = $formValue(argumentCollection=arguments);
 			// blank
 			loc.returnValue = "";
-			loc.returnValue = Evaluate('textField(
-				label="Date Friendly", objectName="#arguments.objectName#", property="#arguments.property#", id="#arguments.$id#"
-				)'
-			);
+			loc.returnValue = Evaluate('textField(argumentCollection=arguments)');
 		</cfscript>
 		<cfreturn loc.returnValue>
 	</cffunction>
