@@ -37,6 +37,7 @@
  
 <p>Date: <input type="text" id="datepicker"></p> 
 <p>Date and Time: <input type="text" name="datetime" id="datetime" value="01.06.2009 00:00"> </p> 
+
 </div><!-- End demo --> 
  
 <div class="demo-description"> 
