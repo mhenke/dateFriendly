@@ -4,8 +4,9 @@
 <html lang="en"> 
 <head> 
 	<title>jQuery UI Datepicker - Default functionality</title> 
-	<script type="text/javascript" src="/plugins/dateFriendly/jquery-1.4.2.min.js"></script> 
-	<script type="text/javascript" src="/plugins/dateFriendly/jquery-ui-1.8rc3.custom.min.js"></script> 
+	<script type="text/javascript" src="/plugins/dateFriendly/js/jquery-1.4.2.min.js"></script> 
+	<script type="text/javascript" src="/plugins/dateFriendly/js/jquery-ui-1.7.2.custom.min.js"></script> 
+	<script type="text/javascript" src="/plugins/dateFriendly/js/timepicker.js"></script> 
 	<link type="text/css" href="http://jqueryui.com/themes/base/jquery.ui.all.css" rel="stylesheet" />
 	<link type="text/css" href="http://jqueryui.com/demos/demos.css" rel="stylesheet" />
 
@@ -14,13 +15,28 @@
 		$("#datepicker").datepicker();
 	});
 	</script> 
+	
+	 <script type="text/javascript">  
+ $(function() {  
+     $('#datetime').datepicker({  
+         duration: '',  
+         showTime: true,  
+         constrainInput: false,  
+         stepMinutes: 1,  
+         stepHours: 1,  
+         altTimeField: '',  
+         time24h: false  
+      });  
+ });  
+ </script>  
+
 </head> 
 <body> 
  
 <div class="demo"> 
  
 <p>Date: <input type="text" id="datepicker"></p> 
- 
+<p>Date and Time: <input type="text" name="datetime" id="datetime" value="01.06.2009 00:00"> </p> 
 </div><!-- End demo --> 
  
 <div class="demo-description"> 

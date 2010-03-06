@@ -14,7 +14,7 @@
 			loc.name = $tagName(arguments.objectName, arguments.property);
 			arguments.$id = $tagId(arguments.objectName, arguments.property);
 			// TODO: need to make this a list of date/time ids and then do once
-			loc.js = addJS(arguments.$id);
+			loc.js = addJS(arguments.$id,'date');
 			loc.value = $formValue(argumentCollection=arguments);
 			loc.returnValue = "";
 			loc.returnValue = Evaluate('textField(argumentCollection=arguments)');
@@ -24,10 +24,12 @@
 	
 	<cffunction name="addJS" returntype="Any" access="public" output="false" hint="" mixin="controller">
 		<cfargument name="id" type="any" required="true">
+		<cfargument name="include" type="any" hint="will decide what js to include date, time, or both">
 		<!--- TODO: css and js files in a better location locally --->
 		<cfsavecontent variable="headJS">
 			<script type="text/javascript" src="/plugins/dateFriendly/js/jquery-1.4.2.min.js"></script> 
 			<script type="text/javascript" src="/plugins/dateFriendly/js/jquery-ui-1.8rc3.custom.min.js"></script> 
+			<script type="text/javascript" src="/plugins/dateFriendly/js/timepicker.js"></script>
 			<!--- TODO: extract only the specific css needed --->
 			<link type="text/css" href="http://jqueryui.com/themes/base/jquery.ui.all.css" rel="stylesheet" />
 			<link type="text/css" href="http://jqueryui.com/demos/demos.css" rel="stylesheet" />
