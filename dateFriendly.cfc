@@ -37,15 +37,6 @@
 		<link type="text/css" href="http://jqueryui.com/demos/demos.css" rel="stylesheet" />
 		
 		<cfoutput>
-			<!--- if date --->
-			<cfif arguments.include EQ "date">
-			<script type="text/javascript"> 
-			$(function() {
-				<!--- TODO: need to loop and set each id for a date field --->
-				$("###arguments.id#").datepicker();
-			});
-			</script> 
-			<cfelseif arguments.include EQ "both">
 			<!--- if date/time --->
 			 <script type="text/javascript">  
 			 $(function() {  
@@ -60,7 +51,6 @@
 			      });  
 			 });  
 			 </script>
-			 </cfif>
 		</cfoutput>
 		</cfsavecontent>
 			
