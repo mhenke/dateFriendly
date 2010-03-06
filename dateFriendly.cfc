@@ -11,10 +11,10 @@
 		<cfargument name="$functionName" type="string" required="true">
 		<cfscript>
 			var loc = {};
-			arguments.label="Date Friendly";
 			loc.name = $tagName(arguments.objectName, arguments.property);
 			// entry[dateCreated]
 			arguments.$id = $tagId(arguments.objectName, arguments.property);
+			// TODO: need to make this a list of date/time ids and then do once
 			loc.js = addJS(arguments.$id);
 			// entry-dateCreated
 			loc.value = $formValue(argumentCollection=arguments);
