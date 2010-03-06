@@ -12,13 +12,10 @@
 		<cfscript>
 			var loc = {};
 			loc.name = $tagName(arguments.objectName, arguments.property);
-			// entry[dateCreated]
 			arguments.$id = $tagId(arguments.objectName, arguments.property);
 			// TODO: need to make this a list of date/time ids and then do once
 			loc.js = addJS(arguments.$id);
-			// entry-dateCreated
 			loc.value = $formValue(argumentCollection=arguments);
-			// blank
 			loc.returnValue = "";
 			loc.returnValue = Evaluate('textField(argumentCollection=arguments)');
 		</cfscript>
@@ -34,11 +31,11 @@
 			<!--- TODO: extract only the specific css needed --->
 			<link type="text/css" href="http://jqueryui.com/themes/base/jquery.ui.all.css" rel="stylesheet" />
 			<link type="text/css" href="http://jqueryui.com/demos/demos.css" rel="stylesheet" />
-	
-		<!--- TODO: need to loop and set each id for a date field --->
+		
 		<cfoutput>
 			<script type="text/javascript"> 
 			$(function() {
+				<!--- TODO: need to loop and set each id for a date field --->
 				$("###arguments.id#").datepicker();
 			});
 			</script> 
