@@ -11,13 +11,16 @@
 		<cfargument name="$functionName" type="string" required="true">
 		<cfscript>
 			var loc = {};
-			loc.js = addJS();
 			loc.name = $tagName(arguments.objectName, arguments.property);
+			// entry[dateCreated]
 			arguments.$id = $tagId(arguments.objectName, arguments.property);
+			loc.js = addJS(arguments.$id);
+			// entry-dateCreated
 			loc.value = $formValue(argumentCollection=arguments);
+			// blank
 			loc.returnValue = "";
 			loc.returnValue = Evaluate('textField(
-				label="Date Friendly", objectName="entry", property="firstName", id="datepicker"
+				label="Date Friendly", objectName="#arguments.objectName#", property="#arguments.property#", id="#arguments.$id#"
 				)'
 			);
 		</cfscript>
@@ -25,6 +28,7 @@
 	</cffunction>
 	
 	<cffunction name="addJS" returntype="Any" access="public" output="false" hint="" mixin="controller">
+		<cfargument name="id" type="any" required="true">
 		<!--- TODO: css and js files in a better location locally --->
 		<cfsavecontent variable="headJS">
 			<script type="text/javascript" src="/plugins/dateFriendly/js/jquery-1.4.2.min.js"></script> 
@@ -34,11 +38,13 @@
 			<link type="text/css" href="http://jqueryui.com/demos/demos.css" rel="stylesheet" />
 	
 		<!--- TODO: need to loop and set each id for a date field --->
-		<script type="text/javascript"> 
-		$(function() {
-			$("#datepicker").datepicker();
-		});
-		</script> 
+		<cfoutput>
+			<script type="text/javascript"> 
+			$(function() {
+				$("###arguments.id#").datepicker();
+			});
+			</script> 
+		</cfoutput>
 		</cfsavecontent>
 			
 		<cfhtmlhead text="#headJS#" />
